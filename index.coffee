@@ -19,7 +19,11 @@ module.exports = exports = (queueOpts = {}) ->
 
 		requestRetry opts, (err, response, body) ->
 			if err
-				opts.callback?(err)
+				try
+					opts.callback?(err)
+				catch e
+					# make sure queueOpts error handler gets called
+					console.error("requestqueue callback error", e, e.stack)
 				queueOpts.errorHandler?(err)
 				return
 			opts.callback?(err, response, body)
