@@ -18,6 +18,7 @@ module.exports = exports = (queueOpts = {}) ->
 		opts.retryStrategy ?= queueOpts.retryStrategy
 
 		requestRetry opts, (err, response, body) ->
+			done()
 			if err
 				try
 					opts.callback?(err)
@@ -27,4 +28,3 @@ module.exports = exports = (queueOpts = {}) ->
 				queueOpts.errorHandler?(err)
 				return
 			opts.callback?(err, response, body)
-			done()
