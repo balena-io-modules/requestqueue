@@ -24,7 +24,7 @@ module.exports = exports = (queueOpts = {}) ->
 					opts.callback?(err)
 				catch e
 					# make sure queueOpts error handler gets called
-					console.error("requestqueue callback error", e, e.stack)
+					console.error('requestqueue callback error', e, e.stack)
 				queueOpts.errorHandler?(err)
 				return
 			opts.callback?(err, response, body)

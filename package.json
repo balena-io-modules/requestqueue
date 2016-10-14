@@ -1,6 +1,6 @@
 {
   "name": "requestqueue",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Run requests in sequence and retry if they fail.",
   "main": "index.js",
   "repository": {
@@ -9,9 +9,9 @@
   },
   "author": "Aleksis Brezas <abresas@resin.io>",
   "scripts": {
-    "pretest": "./node_modules/.bin/coffeelint ./index.coffee ./test",
-    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register ./test",
-    "prepublish": "./node_modules/.bin/coffee -c index.coffee"
+    "pretest": "resin-lint ./index.coffee ./test",
+    "test": "mocha --compilers coffee:coffee-script/register ./test",
+    "prepublish": "coffee -c index.coffee"
   },
   "license": "MIT",
   "dependencies": {
@@ -21,7 +21,7 @@
   "devDependencies": {
     "chai": "^3.0.0",
     "coffee-script": "^1.9.3",
-    "coffeelint": "^1.10.1",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "resin-lint": "^1.4.0"
   }
 }

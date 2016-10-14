@@ -30,7 +30,7 @@
             }
           } catch (error) {
             e = error;
-            console.error("requestqueue callback error", e, e.stack);
+            console.error('requestqueue callback error', e, e.stack);
           }
           if (typeof queueOpts.errorHandler === "function") {
             queueOpts.errorHandler(err);
